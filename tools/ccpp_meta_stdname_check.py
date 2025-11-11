@@ -73,12 +73,12 @@ def parse_arguments():
     parser = argparse.ArgumentParser(description=desc)
 
     #Add input arguments to be parsed:
-    parser.add_argument('-m', '--metafile-loc',
+    parser.add_argument('-m', '--metafile-loc', required=True,
                         metavar='<path to directory or file>',
                         action='store', type=str,
                         help="Location of metadata file(s)")
 
-    parser.add_argument('-s', '--stdname-dict',
+    parser.add_argument('-s', '--stdname-dict', required=True,
                         metavar='<path to file>',
                         action='store', type=str,
                         help="Location of standard name dictionary (XML file)")
@@ -92,7 +92,7 @@ def parse_arguments():
 #Function to extract standard names from element tree root
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-def get_dict_stdnames(xml_tree_root):
+def get_dict_stdnames(xml_tree, std_dict_names=set()):
 
     """
     Extract all elements with the "standard_name" tag,
@@ -100,11 +100,12 @@ def get_dict_stdnames(xml_tree_root):
     all of those "names" in a set.
     """
 
-    #Create empty set to store standard name names:
-    std_dict_names = set()
+    # Recurse over subsections
 
-    #Loop over all standard_name tags"
-    for stdname in xml_tree_root.findall('./section/standard_name'):
+    for section in  xml_tree.findall('./section'):
+        std_dict_names.union(get_dict_stdnames(section,std_dict_names))
+    # Loop over all standard_name tags"
+    for stdname in xml_tree.findall('./standard_name'):
         #Add the "name" attribute to the set:
         std_dict_names.add(stdname.attrib['name'])
     #End for
