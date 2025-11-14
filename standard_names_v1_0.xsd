@@ -1,10 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xs:schema elementFormDefault="qualified"
            xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
   <!-- identifier types -->
-
   <xs:simpleType name="standard_name_type">
     <xs:restriction base="xs:string">
       <xs:pattern value="[a-z][a-z0-9_]*"/>
@@ -32,12 +30,10 @@
 
   <xs:attribute name="comment"        type="xs:string"/>
   <xs:attribute name="description"      type="xs:string"/>
-  <xs:attribute name="name"           type="standard_name_type"/>
   <xs:attribute name="units"          type="xs:string"/>
   <xs:attribute name="version"        type="version_type"/>
 
   <!-- definition of complex types -->
-
   <xs:complexType name="md_type">
     <xs:simpleContent>
       <xs:extension base="type_type">
@@ -46,33 +42,59 @@
     </xs:simpleContent>
   </xs:complexType>
 
+  <!-- standard_name: allow either
+       - canonical child <type> (md_type) OR
+       - a simple 'type' attribute (alternate form)
+     Also allow optional comment attribute, and require name attribute.
+  -->
   <xs:complexType name="stdname_type">
-    <xs:sequence>
-      <xs:element name="type"     type="md_type"/>
-    </xs:sequence>
-    <xs:attribute ref="name"      use="required"/>
+    <xs:choice>
+      <!-- canonical form: child element -->
+      <xs:sequence>
+        <xs:element name="type" type="md_type" minOccurs="0" maxOccurs="1"/>
+      </xs:sequence>
+      <!-- alternate form: no child; allow attribute 'type' instead -->
+      <xs:sequence/>
+    </xs:choice>
+
+    <!-- required standard_name name -->
+    <xs:attribute name="name" type="standard_name_type" use="required"/>
+
+    <!-- optional comment (some files use comment attribute on standard_name) -->
+    <xs:attribute ref="comment" use="optional"/>
+
+    <!-- optional description attribute -->
     <xs:attribute ref="description" use="optional"/>
+
+    <!-- alternate (less-structured) type attribute to accept non-child format -->
+    <xs:attribute name="type" type="type_type" use="optional"/>
   </xs:complexType>
 
+  <!-- section: allow nested sections + standard_name entries in any order;
+       allow optional section@name (since your XML uses it) and optional comment
+  -->
   <xs:complexType name="section_type">
     <xs:sequence>
-      <xs:element name="standard_name" type="stdname_type"
-                  minOccurs="1" maxOccurs="unbounded"/>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="section" type="section_type"/>
+        <xs:element name="standard_name" type="stdname_type"/>
+      </xs:choice>
     </xs:sequence>
-    <xs:attribute ref="name"    use="required"/>
+
+    <!-- let section optionally carry a name attribute (accept existing files) -->
+    <xs:attribute name="name" type="xs:string" use="optional"/>
     <xs:attribute ref="comment" use="optional"/>
   </xs:complexType>
 
   <!-- definition of elements -->
-
-  <xs:element name="section" type="section_type">
-  </xs:element>
+  <xs:element name="section" type="section_type"/>
 
   <xs:element name="standard_names">
     <xs:complexType>
       <xs:sequence>
         <xs:element ref="section" minOccurs="0" maxOccurs="unbounded"/>
       </xs:sequence>
+
       <xs:attribute name="name"    type="xs:string"    use="required"/>
       <xs:attribute name="version" type="version_type" use="required"/>
     </xs:complexType>

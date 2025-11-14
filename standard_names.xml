@@ -648,14 +648,8 @@
     <standard_name name="specific_heat_of_dry_air_at_constant_pressure">
       <type units="J kg-1 K-1">real</type>
     </standard_name>
-    <standard_name name="physics_state_due_to_dynamics">
-      <type units="none">physics_state</type>
-    </standard_name>
     <standard_name name="timestep_for_physics">
       <type units="s">integer</type>
-    </standard_name>
-    <standard_name name="total_tendency_of_physics">
-      <type units="none">physics_tend</type>
     </standard_name>
     <standard_name name="air_pressure_at_top_of_atmosphere_model">
       <type units="Pa">real</type>
@@ -1295,20 +1289,20 @@
   </section>
   <section name="atmospheric_composition: GLOMAP/UKCA aerosols">
     <standard_name name="mass_fraction_of_dust_coarse_aerosol_particles_in_air"
-                   long_name="Mass fraction of coarse mode dust aerosol particles">
-      <type kind="kind_phys" units="kg kg-1">real</type>
+                   description="Mass fraction of coarse mode dust aerosol particles">
+      <type units="kg kg-1">real</type>
     </standard_name>
     <standard_name name="mass_fraction_of_dust_accumulation_aerosol_particles_in_air"
-                   long_name="Mass fraction of accumulation mode dust aerosol particles">
-      <type kind="kind_phys" units="kg kg-1">real</type>
+                   description="Mass fraction of accumulation mode dust aerosol particles">
+      <type units="kg kg-1">real</type>
     </standard_name>
     <standard_name name="number_fraction_of_coarse_aerosol_particles_in_air"
                    description="Ratio of number concentration of coarse mode dust aerosol particles to the molecular concentration of air">
-      <type kind="kind_phys" units="particles molecules-1">real</type>
+      <type units="particles molecules-1">real</type>
     </standard_name>
       <standard_name name="number_fraction_of_accumulation_aerosol_particles_in_air"
                    description="Ratio of number concentration of accumulation mode dust aerosol particles to the molecular concentration of air">
-      <type kind="kind_phys" units="particles molecules-1">real</type>
+      <type units="particles molecules-1">real</type>
     </standard_name>
   </section>
   <section name="emissions"
@@ -1442,7 +1436,7 @@
       </standard_name>
       <standard_name name="ccpp_constituent_properties"
                      description="CCPP Constituent Properties">
-        <type units="none">ccpp_constituent_prop_ptr_t</type>
+        <type units="none">real</type>
       </standard_name>
       <standard_name name="ccpp_constituents"
                      description="Array of constituents managed by CCPP Framework">
@@ -1999,7 +1993,6 @@
       </standard_name>
       <standard_name name="do_nsstm_analysis_in_gcycle"
                    description="Do GFS near-surface sea temperature scheme analysis in gcycle">
-GFS near-surface sea temperature scheme
          <type units="flag">logical</type>
       </standard_name>
       <standard_name name="control_for_nsstm"
@@ -3330,7 +3323,7 @@ GFS near-surface sea temperature scheme
       <standard_name name="temperature_in_ice_layer">
          <type units="K">real</type>
       </standard_name>
-      <standard_name name="upward_flux_of_water_vapor_mixing_ratio_wrt_moist_air_at_surface">
+      <standard_name name="upward_flux_of_water_vapor_mixing_ratio_wrt_moist_air_at_surface"
                    description="Upward specific humidity (water vapor mass mixing ratio with respect to moist air) flux at surface">
          <type units="kg kg-1 m s-1">real</type>
       </standard_name>
@@ -3385,15 +3378,15 @@ GFS near-surface sea temperature scheme
                      description="albedo for near-infrared radiation with strong dependence on cosine of the zenith angle">
          <type units="fraction">real</type>
       </standard_name>
-      <standard_name name="nir_albedo_weak_cosz">
+      <standard_name name="nir_albedo_weak_cosz"
                      description="albedo for near-infrared radiation with weak dependence on cosine of the zenith angle">
          <type units="fraction">real</type>
       </standard_name>
-      <standard_name name="vis_albedo_strong_cosz">
+      <standard_name name="vis_albedo_strong_cosz"
                      description="albedo for visible radiation with strong dependence on cosine of the zenith angle">
          <type units="fraction">real</type>
       </standard_name>
-      <standard_name name="vis_albedo_weak_cosz">
+      <standard_name name="vis_albedo_weak_cosz"
                      description="albedo for visible radiation with weak dependence on cosine of the zenith angle">
          <type units="fraction">real</type>
       </standard_name>
@@ -3903,7 +3896,7 @@ GFS near-surface sea temperature scheme
       <standard_name name="temperature_at_2m_for_coupling">
          <type units="K">real</type>
       </standard_name>
-      <standard_name name="tendency_of_water_vapor_mixing_ratio_wrt_moist_air_due_to_moist_convection_for_coupling">
+      <standard_name name="tendency_of_water_vapor_mixing_ratio_wrt_moist_air_due_to_moist_convection_for_coupling"
                    description="Tendency of specific humidity (water vapor mass mixing ratio with respect to moist air) due to moist convection used for coupling">
          <type units="kg kg-1 s-1">real</type>
       </standard_name>
@@ -4164,7 +4157,7 @@ GFS near-surface sea temperature scheme
          <type units="1">real</type>
       </standard_name>
       <standard_name name="surface_lw_fluxes_assuming_total_and_clear_sky_on_radiation_timestep">
-         <type units="W m-2">sfcflw_type</type>
+         <type units="W m-2">real</type>
       </standard_name>
       <standard_name name="diffuse_shortwave_albedo_on_radiation_timestep"
                      description="surface albedo for diffuse shortwave radiation on the timestep for radiation physics">
@@ -4177,7 +4170,7 @@ GFS near-surface sea temperature scheme
          <type units="K">real</type>
       </standard_name>
       <standard_name name="surface_sw_fluxes_assuming_total_and_clear_sky_on_radiation_timestep">
-         <type units="W m-2">sfcfsw_type</type>
+         <type units="W m-2">real</type>
       </standard_name>
       <standard_name name="tendency_of_air_temperature_due_to_longwave_heating_assuming_clear_sky_on_radiation_timestep">
          <type units="K s-1">real</type>
