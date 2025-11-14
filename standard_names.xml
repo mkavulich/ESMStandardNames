@@ -563,6 +563,10 @@
   </section>
   <section name="constants"
            comment="Constant parameters that should be identical across a full modeling system">
+    <standard_name name="angular_velocity_of_earth"
+                   description="Angular velocity of the earth">
+      <type units="s-1">real</type>
+    </standard_name>
     <standard_name name="avogadro_number">
       <type units="molecules mol-1">real</type>
     </standard_name>
@@ -583,9 +587,24 @@
     <standard_name name="gas_constant_of_dry_air">
       <type units="J kg-1 K-1">real</type>
     </standard_name>
+    <standard_name name="gas_constant_of_water_vapor">
+      <type units="J kg-1 K-1">real</type>
+    </standard_name>
+    <standard_name name="latent_heat_of_fusion_of_water_at_0c"
+                   description="Latent heat of vaporization of water at 0 degrees Celsius">
+      <type units="J kg-1">real</type>
+    </standard_name>
     <standard_name name="latent_heat_of_vaporization_of_water_at_0c"
                    description="Latent heat of vaporization of water at 0 degrees Celsius">
       <type units="J kg-1">real</type>
+    </standard_name>
+    <standard_name name="pi"
+                   description="Ratio of a circle's circumference to its diameter">
+      <type units="1">real</type>
+    </standard_name>
+    <standard_name name="radius_of_earth"
+                   description="Radius of an idealized spherical earth">
+      <type units="m">real</type>
     </standard_name>
     <standard_name
         name="ratio_of_water_vapor_to_dry_air_gas_constants_minus_one"
@@ -603,6 +622,11 @@
         name="standard_gravitational_acceleration"
         description="scalar constant representing gravitational acceleration">
       <type units="m s-2">real</type>
+    </standard_name>
+    <standard_name
+        name="von_karman_constant"
+        description="Von Karman constant">
+      <type units="1">real</type>
     </standard_name>
   </section>
   <section name="coordinates">
@@ -1451,6 +1475,30 @@
     <standard_name name="flag_for_mpi_root"
                    description="Flag for MPI root process">
       <type units="flag">logical</type>
+    </standard_name>
+    <standard_name name="mpi_communicator">
+       <type units="index">integer</type>
+    </standard_name>
+    <standard_name name="mpi_rank">
+       <type units="index">integer</type>
+    </standard_name>
+    <standard_name name="mpi_root">
+       <type units="index">integer</type>
+    </standard_name>
+    <standard_name name="number_of_mpi_tasks">
+       <type units="count">integer</type>
+    </standard_name>
+    <standard_name name="number_of_x_points_for_current_mpi_rank">
+       <type units="count">integer</type>
+    </standard_name>
+    <standard_name name="number_of_y_points_for_current_mpi_rank">
+       <type units="count">integer</type>
+    </standard_name>
+    <standard_name name="starting_x_index_for_current_mpi_rank">
+       <type units="index">integer</type>
+    </standard_name>
+    <standard_name name="starting_y_index_for_current_mpi_rank">
+       <type units="index">integer</type>
     </standard_name>
     <standard_name name="log_output_unit"
                    description="Fortran logical unit for output log file">
@@ -2574,18 +2622,6 @@ GFS near-surface sea temperature scheme
       <standard_name name="momentum_transport_reduction_factor_due_to_pressure_gradient_force_for_shallow_convection">
          <type units="fraction">real</type>
       </standard_name>
-      <standard_name name="mpi_communicator">
-         <type units="index">integer</type>
-      </standard_name>
-      <standard_name name="mpi_rank">
-         <type units="index">integer</type>
-      </standard_name>
-      <standard_name name="mpi_root">
-         <type units="index">integer</type>
-      </standard_name>
-      <standard_name name="number_of_mpi_tasks">
-         <type units="count">integer</type>
-      </standard_name>
       <standard_name name="tunable_parameter_for_critical_cloud_workfunction_in_relaxed_arakawa_schubert_deep_convection">
          <type units="1">real</type>
       </standard_name>
@@ -2680,13 +2716,7 @@ GFS near-surface sea temperature scheme
       <standard_name name="number_of_x_points_for_current_cubed_sphere_tile">
          <type units="count">integer</type>
       </standard_name>
-      <standard_name name="number_of_x_points_for_current_mpi_rank">
-         <type units="count">integer</type>
-      </standard_name>
       <standard_name name="number_of_y_points_for_current_cubed_sphere_tile">
-         <type units="count">integer</type>
-      </standard_name>
-      <standard_name name="number_of_y_points_for_current_mpi_rank">
          <type units="count">integer</type>
       </standard_name>
       <standard_name name="number_of_diagnostics_variables_for_radiation">
@@ -2817,12 +2847,6 @@ GFS near-surface sea temperature scheme
       </standard_name>
       <standard_name name="solar_constant">
          <type units="W m-2">real</type>
-      </standard_name>
-      <standard_name name="starting_x_index_for_current_mpi_rank">
-         <type units="index">integer</type>
-      </standard_name>
-      <standard_name name="starting_y_index_for_current_mpi_rank">
-         <type units="index">integer</type>
       </standard_name>
       <standard_name name="multiplicative_tuning_parameter_for_reduced_surface_heat_fluxes_due_to_canopy_heat_storage">
          <type units="1">real</type>
@@ -3882,6 +3906,12 @@ GFS near-surface sea temperature scheme
       <standard_name name="tendency_of_water_vapor_mixing_ratio_wrt_moist_air_due_to_moist_convection_for_coupling">
                    description="Tendency of specific humidity (water vapor mass mixing ratio with respect to moist air) due to moist convection used for coupling">
          <type units="kg kg-1 s-1">real</type>
+      </standard_name>
+      <standard_name name="x_wind_at_10m">
+         <type units="m s-1">real</type>
+      </standard_name>
+      <standard_name name="y_wind_at_10m">
+         <type units="m s-1">real</type>
       </standard_name>
       <standard_name name="x_wind_at_10m_for_coupling">
          <type units="m s-1">real</type>
