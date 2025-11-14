@@ -8,6 +8,21 @@ on:
       - release/*
 
 jobs:
+  validate-xml:
+    name: Checks standard_names.xml against the repository schema file, as well as indentation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install xmllint
+        run: sudo apt-get update && sudo apt-get install -y libxml2-utils
+
+      - name: Validate XML file
+        run: |
+          xmllint --noout --schema standard_names_v1_0.xsd standard_names.xml
+
   check-unique-standard-names:
     name: Check for duplicates in standard names
     runs-on: ubuntu-latest
