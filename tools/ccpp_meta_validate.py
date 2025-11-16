@@ -271,10 +271,12 @@ def longname_allowed(s):
     return all(ch in allowed for ch in s)
 
 badstuff = {}
+questions = {}
 for metafile in metafiles:
     metadict=extract_metadata_dict(metafile)
 #    print(f"{metadict=}")
     badstuff[metafile]=[]
+    questions[metafile]=[]
     for table in metadict:
 #        print(f"{table=}")
         for var in metadict[table]:
@@ -338,11 +340,20 @@ for metafile in metafiles:
             elif metadict[table][var]['type'] == "real":
                 if metadict[table][var]['units'] not in realunits:
                     badstuff[metafile].append(f"Variable {var} has invalid units {metadict[table][var]['units']} for real type")
+#                if "fraction" in metadict[table][var]['standard_name'] and metadict[table][var]['units'] != "fraction":
+#                    questions[metafile].append(f"Variable {metadict[table][var]['standard_name']} has units {metadict[table][var]['units']}, should possibly be 'fraction'")
             elif metadict[table][var]['type'] == "integer":
                 if metadict[table][var]['units'] not in intunits:
                     badstuff[metafile].append(f"Variable {var} has invalid units {metadict[table][var]['units']} for integer type")
+#                if "index" in metadict[table][var]['standard_name'] and metadict[table][var]['units'] != "index":
+#                    questions[metafile].append(f"Variable {metadict[table][var]['standard_name']} has units {metadict[table][var]['units']}, should possibly be 'index'")
+#                if "count" in metadict[table][var]['standard_name'] and metadict[table][var]['units'] != "count":
+#                    questions[metafile].append(f"Variable {metadict[table][var]['standard_name']} has units {metadict[table][var]['units']}, should possibly be 'count'")
             else:
                 print("What type is this? " + metadict[table][var]['type'])
+
+            # check 3: look for potential name/unit mismatches
+
 
             # Next: check that names with "fraction" in them have correct units
 #for test_string in ["good", "BAD", "V.e,RY% B@D"]:
@@ -362,5 +373,22 @@ for fn in badstuff:
 #    else:
 #        print(f"\nNo problems found in file {fn}!")
 
+qs=False
 if not problems:
     print(f"\nAll files passed all checks!")
+for fn in questions:
+    if questions[fn]:
+        qs=True
+
+if qs:
+    if problems:
+        print(f"Also, some stuff should be double-checked:")
+    else:
+        print(f"But some stuff should be double-checked:")
+    for fn in questions:
+        if questions[fn]:
+            problems=True
+            print(f"\nQuestions in file {fn}:")
+            for item in questions[fn]:
+                print("    " + item)
+
