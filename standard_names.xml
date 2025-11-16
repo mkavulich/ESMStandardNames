@@ -331,7 +331,12 @@
         <type units="J kg-1">real</type>
       </standard_name>
       <standard_name name="exner_function"
-                     description="Exner function, (p/p0)^(Rd/cp), where p0 is some reference pressure (1000 hPa if not specified)">
+                     description="Exner function with respect to 1000 hPa"
+                     comment="The formulation for the exner function is traditionally (p/p0)^(Rd/cp), where p0 is some reference pressure.\n
+                              For the purposes of the standard names, this reference pressure is assumed as 1000 hPa unless specified otherwise;\n
+                              i.e. exner_function_wrt_air_pressure_at_surface would use the pressure at the surface as P0.\n
+                              Note that this is numerically equivalent to T/theta (temperature divided by potential temperature), where again\n
+                              theta is calculated with respect to 1000 hPa if not specified">
         <type units="1">real</type>
       </standard_name>
       <standard_name name="friction_velocity"
@@ -755,6 +760,10 @@
     <standard_name name="ln_air_pressure_of_dry_air">
       <type units="1">real</type>
     </standard_name>
+    <standard_name name="reciprocal_of_exner_function"
+                   description="inverse of the exner function with respect to 1000 hPa">
+      <type units="1">real</type>
+    </standard_name>
     <standard_name name="reciprocal_of_exner_function_wrt_air_pressure_at_surface"
                    description="inverse exner function with respect to surface pressure; (ps/p)^(R/cp)">
       <type units="1">real</type>
@@ -916,10 +925,6 @@
     </standard_name>
     <standard_name name="reference_pressure_in_atmosphere_layer_normalized_by_surface_reference_pressure"
                    description="Reference pressure in atmosphere layer normalized by surface reference pressure">
-      <type units="1">real</type>
-    </standard_name>
-    <standard_name name="exner_function"
-                   description="exner function, (p/p0)^(Rd/cp), where p0 is 1000 hPa">
       <type units="1">real</type>
     </standard_name>
     <standard_name name="potential_temperature_of_air"
@@ -4070,8 +4075,8 @@
       <standard_name name="mass_number_concentration_of_cloud_liquid_water_particles_in_air">
          <type units="kg-1">real</type>
       </standard_name>
-      <standard_name name="exner_function_wrt_surface_pressure"
-                   description="Exner function with respect to surface pressure, (p/ps)^(Rd/cp)">
+      <standard_name name="exner_function_at_surface"
+                   description="exner function (ps/p0)^(Rd/cp), where p0 is 1000 hPa and ps is the pressure at the surface">
          <type units="1">real</type>
       </standard_name>
       <standard_name name="exner_function_at_surface_adjacent_layer"
@@ -4080,6 +4085,14 @@
       </standard_name>
       <standard_name name="exner_function_at_interfaces"
                    description="exner function (p/p0)^(Rd/cp), where p0 is 1000 hPa and p is the pressure at vertical layer interfaces">
+         <type units="1">real</type>
+      </standard_name>
+      <standard_name name="exner_function_wrt_surface_pressure"
+                   description="Exner function with respect to surface pressure, (p/ps)^(Rd/cp)">
+         <type units="1">real</type>
+      </standard_name>
+      <standard_name name="exner_function_wrt_surface_pressure_at_surface_adjacent_layer"
+                   description="Exner function with respect to surface pressure, (p/ps)^(Rd/cp), where ps is the pressure at the surface and p is the pressure at the surface-adjacent layer">
          <type units="1">real</type>
       </standard_name>
       <standard_name name="dissipation_estimate_of_air_temperature_at_model_layers">
