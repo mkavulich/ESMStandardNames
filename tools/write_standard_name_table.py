@@ -178,12 +178,15 @@ def parse_section(snl, sec, level='##'):
             parse_section(snl, std_name, level + '#')
             continue
         stdn_name = std_name.get('name')
+        stdn_cfname = std_name.get('cfname')
         stdn_description = std_name.get('description')
         if stdn_description is None:
             sdict = {'standard_name': stdn_name}
             stdn_description = standard_name_to_description(sdict)
         # end if
         snl.write("* `{}`: {}\n".format(stdn_name, stdn_description))
+        if stdn_cfname:
+            snl.write(f"* Equivalent CF name: {stdn_cfname}\n")
         # Should only be a type in the standard_name text
         for item in std_name:
             if item.tag == 'type':

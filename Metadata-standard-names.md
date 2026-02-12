@@ -36,6 +36,7 @@ more specific standard names.
 * `area`: Area
     * `real`: units = m2
 * `area_fraction`: The fraction of an area where some condition applies
+* Equivalent CF name: area fraction
     * `real`: units = 1
 * `binary_mask`: A field consisting of either 0 or 1 at every point
     * `integer`: units = 1
@@ -155,10 +156,12 @@ full list of standard names for further details.
 * `air_pressure_thickness`: The difference in air pressure between two vertical layers
     * `real`: units = Pa
 * `air_temperature`: The temperature of air
+* Equivalent CF name: air_temperature
     * `real`: units = K
 * `albedo`: The fraction of incident radiation reflected by a surface
     * `real`: units = 1
 * `atmosphere_heat_diffusivity`: Atmosphere heat diffusivity
+* Equivalent CF name: atmosphere_heat_diffusivity
     * `real`: units = m2 s-1
 * `cloud_area_fraction`: Fraction of an area (usually within a grid cell) containing cloud
     * `real`: units = fraction
@@ -351,10 +354,13 @@ Note that appending '_on_previous_timestep' to standard_names in this section yi
 * `total_tendency_of_physics`: Total tendency of physics
     * `ddt`: units = none
 * `air_pressure_at_top_of_atmosphere_model`: Air pressure at top of atmosphere model
+* Equivalent CF name: air_pressure_at_top_of_atmosphere_model
     * `real`: units = Pa
 * `air_pressure_at_sea_level`: Air pressure at sea level
+* Equivalent CF name: air_pressure_at_mean_sea_level
     * `real`: units = Pa
 * `air_pressure_at_surface`: Air pressure at local surface
+* Equivalent CF name: surface_air_pressure
     * `real`: units = Pa
 * `surface_pressure_of_dry_air`: Surface pressure of dry air
     * `real`: units = Pa
@@ -391,6 +397,7 @@ Note that appending '_on_previous_timestep' to standard_names in this section yi
 * `density_of_dry_air`: Density of dry air
     * `real`: units = kg m-3
 * `air_pressure`: Midpoint air pressure
+* Equivalent CF name: air_pressure
     * `real`: units = Pa
 * `air_pressure_of_dry_air`: Dry midpoint pressure
     * `real`: units = Pa
@@ -475,8 +482,10 @@ Note that appending '_on_previous_timestep' to standard_names in this section yi
 * `horizontal_streamfunction_of_air`: Scalar function describing the streamlines of the horizontal wind
     * `real`: units = m2 s-1
 * `horizontal_velocity_potential_of_air`: Scalar potential of the horizontal wind
+* Equivalent CF name: atmosphere_horizontal_velocity_potential
     * `real`: units = m2 s-1
 * `upward_absolute_vorticity_of_air`: The upward (kth) component of the curl of the vector wind field
+* Equivalent CF name: atmosphere_upward_absolute_vorticity
     * `real`: units = s-1
 * `horizontal_divergence_of_air`: The horizontal divergence of the 2-D vector wind field
     * `real`: units = s-1
@@ -497,6 +506,7 @@ Note that appending '_on_previous_timestep' to standard_names in this section yi
 * `reference_pressure_in_atmosphere_layer_normalized_by_surface_reference_pressure`: Reference pressure in atmosphere layer normalized by surface reference pressure
     * `real`: units = 1
 * `potential_temperature_of_air`: air potential temperature
+* Equivalent CF name: air_potential_temperature
     * `real`: units = K
 * `potential_temperature_of_air_on_previous_timestep`: air potential temperature on previous timestep
     * `real`: units = K
@@ -563,6 +573,7 @@ Note that appending '_on_previous_timestep' to standard_names in this section yi
 * `number_of_tracers`: Number of tracers
     * `integer`: units = count
 * `water_vapor_mixing_ratio_wrt_moist_air`: Ratio of the mass of water vapor to the mass of moist air
+* Equivalent CF name: specific_humidity
     * `real`: units = kg kg-1
 * `water_vapor_mixing_ratio_wrt_moist_air_and_condensed_water`: Ratio of the mass of water vapor to the mass of moist air and hydrometeors
     * `real`: units = kg kg-1
@@ -571,6 +582,7 @@ Note that appending '_on_previous_timestep' to standard_names in this section yi
 * `mole_fraction_of_water_vapor`: Mole fraction of water vapor
     * `real`: units = mol mol-1
 * `water_vapor_mixing_ratio_wrt_dry_air`: Ratio of the mass of water vapor to the mass of dry air
+* Equivalent CF name: humidity_mixing_ratio
     * `real`: units = kg kg-1
 * `water_vapor_mixing_ratio_wrt_dry_air_at_top_interfaces`: Ratio of the mass of water vapor to the mass of dry air at all interfaces excluding surface
     * `real`: units = kg kg-1
@@ -1719,6 +1731,7 @@ Variables related to the compute environment
 * `vertical_layer_dimension_minus_one`: Vertical layer dimension minus one
     * `integer`: units = count
 * `sigma_pressure_hybrid_vertical_coordinate`: Sigma pressure hybrid vertical coordinate
+* Equivalent CF name: atmosphere_hybrid_sigma_pressure_coordinate
     * `real`: units = 1
 * `lower_bound_for_depth_of_sea_temperature_for_nsstm`: Lower bound for depth of sea temperature for GFS near-surface sea temperature scheme
     * `integer`: units = mm
@@ -1781,6 +1794,7 @@ Variables related to the compute environment
 * `air_temperature_two_timesteps_back`: Air temperature two timesteps back
     * `real`: units = K
 * `atmosphere_boundary_layer_thickness`: Atmosphere boundary layer thickness
+* Equivalent CF name: atmosphere_boundary_layer_thickness
     * `real`: units = m
 * `atmosphere_heat_diffusivity_from_shoc`: Atmospheric heat diffusivity from Simplified Higher-Order Closure stochastic physics scheme
     * `real`: units = m2 s-1
@@ -2042,6 +2056,7 @@ Variables related to the compute environment
 * `sea_ice_thickness`: Sea ice thickness
     * `real`: units = m
 * `area_type`: Area type
+* Equivalent CF name: area_type
     * `real`: units = 1
 * `reference_sea_surface_temperature`: Reference sea surface temperature
     * `real`: units = K
