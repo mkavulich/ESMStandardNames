@@ -360,8 +360,6 @@ Note that appending '_on_previous_timestep' to standard_names in this section yi
     * `real`: units = Pa
 * `geopotential_at_surface`: Geopotential at surface
     * `real`: units = m2 s-2
-* `air_temperature`: Air temperature
-    * `real`: units = K
 * `air_temperature_on_previous_timestep`: Air temperature on previous timestep
     * `real`: units = K
 * `x_wind`: Horizontal wind in a direction perpendicular to y_wind

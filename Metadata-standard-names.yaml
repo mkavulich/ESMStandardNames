@@ -790,11 +790,6 @@ section:
     type: real
     kind: null
     units: m2 s-2
-  - name: air_temperature
-    description: Air temperature
-    type: real
-    kind: null
-    units: K
   - name: air_temperature_on_previous_timestep
     description: Air temperature on previous timestep
     type: real
