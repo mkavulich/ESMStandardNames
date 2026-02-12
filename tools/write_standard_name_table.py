@@ -186,7 +186,7 @@ def parse_section(snl, sec, level='##'):
         # end if
         snl.write("* `{}`: {}\n".format(stdn_name, stdn_description))
         if stdn_cfname:
-            snl.write(f"* Equivalent CF name: {stdn_cfname}\n")
+            snl.write(f"    * Equivalent CF name: {stdn_cfname}\n")
         # Should only be a type in the standard_name text
         for item in std_name:
             if item.tag == 'type':
