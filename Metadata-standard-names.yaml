@@ -15,6 +15,7 @@ section:
       kind: null
       units: m2
     - name: area_fraction
+      cfname: area fraction
       description: The fraction of an area where some condition applies
       type: real
       kind: null
@@ -303,6 +304,7 @@ section:
       kind: null
       units: Pa
     - name: air_temperature
+      cfname: air_temperature
       description: The temperature of air
       type: real
       kind: null
@@ -313,6 +315,7 @@ section:
       kind: null
       units: 1
     - name: atmosphere_heat_diffusivity
+      cfname: atmosphere_heat_diffusivity
       description: Atmosphere heat diffusivity
       type: real
       kind: null
@@ -766,16 +769,19 @@ section:
     kind: null
     units: none
   - name: air_pressure_at_top_of_atmosphere_model
+    cfname: air_pressure_at_top_of_atmosphere_model
     description: Air pressure at top of atmosphere model
     type: real
     kind: null
     units: Pa
   - name: air_pressure_at_sea_level
+    cfname: air_pressure_at_mean_sea_level
     description: Air pressure at sea level
     type: real
     kind: null
     units: Pa
   - name: air_pressure_at_surface
+    cfname: surface_air_pressure
     description: Air pressure at local surface
     type: real
     kind: null
@@ -870,6 +876,7 @@ section:
     kind: null
     units: kg m-3
   - name: air_pressure
+    cfname: air_pressure
     description: Midpoint air pressure
     type: real
     kind: null
@@ -1082,11 +1089,13 @@ section:
     kind: null
     units: m2 s-1
   - name: horizontal_velocity_potential_of_air
+    cfname: atmosphere_horizontal_velocity_potential
     description: Scalar potential of the horizontal wind
     type: real
     kind: null
     units: m2 s-1
   - name: upward_absolute_vorticity_of_air
+    cfname: atmosphere_upward_absolute_vorticity
     description: The upward (kth) component of the curl of the vector wind field
     type: real
     kind: null
@@ -1139,6 +1148,7 @@ section:
     kind: null
     units: 1
   - name: potential_temperature_of_air
+    cfname: air_potential_temperature
     description: air potential temperature
     type: real
     kind: null
@@ -1309,6 +1319,7 @@ section:
     kind: null
     units: count
   - name: water_vapor_mixing_ratio_wrt_moist_air
+    cfname: specific_humidity
     description: Ratio of the mass of water vapor to the mass of moist air
     type: real
     kind: null
@@ -1330,6 +1341,7 @@ section:
     kind: null
     units: mol mol-1
   - name: water_vapor_mixing_ratio_wrt_dry_air
+    cfname: humidity_mixing_ratio
     description: Ratio of the mass of water vapor to the mass of dry air
     type: real
     kind: null
@@ -4333,6 +4345,7 @@ section:
     kind: null
     units: count
   - name: sigma_pressure_hybrid_vertical_coordinate
+    cfname: atmosphere_hybrid_sigma_pressure_coordinate
     description: Sigma pressure hybrid vertical coordinate
     type: real
     kind: null
@@ -4506,6 +4519,7 @@ section:
     kind: null
     units: K
   - name: atmosphere_boundary_layer_thickness
+    cfname: atmosphere_boundary_layer_thickness
     description: Atmosphere boundary layer thickness
     type: real
     kind: null
@@ -5192,6 +5206,7 @@ section:
     kind: null
     units: m
   - name: area_type
+    cfname: area_type
     description: Area type
     type: real
     kind: null
