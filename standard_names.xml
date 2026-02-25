@@ -10,8 +10,9 @@
       <standard_name name="area">
         <type units="m2">real</type>
       </standard_name>
-      <standard_name name="area_fraction" cfname="area fraction"
+      <standard_name name="area_fraction"
                      description="The fraction of an area where some condition applies">
+        <cfname>area fraction</cfname>
         <type units="1">real</type>
       </standard_name>
       <standard_name name="binary_mask"
@@ -259,15 +260,17 @@
                      description="The difference in air pressure between two vertical layers">
         <type units="Pa">real</type>
       </standard_name>
-      <standard_name name="air_temperature" cfname="air_temperature"
+      <standard_name name="air_temperature"
                      description="The temperature of air">
+        <cfname>air_temperature</cfname>
         <type units="K">real</type>
       </standard_name>
       <standard_name name="albedo"
                      description="The fraction of incident radiation reflected by a surface">
         <type units="1">real</type>
       </standard_name>
-      <standard_name name="atmosphere_heat_diffusivity" cfname="atmosphere_heat_diffusivity">
+      <standard_name name="atmosphere_heat_diffusivity">
+        <cfname>atmosphere_heat_diffusivity</cfname>
         <type units="m2 s-1">real</type>
       </standard_name>
       <standard_name name="cloud_area_fraction"
@@ -648,14 +651,17 @@
     <standard_name name="total_tendency_of_physics">
       <type units="none">ddt</type>
     </standard_name>
-    <standard_name name="air_pressure_at_top_of_atmosphere_model" cfname="air_pressure_at_top_of_atmosphere_model">
+    <standard_name name="air_pressure_at_top_of_atmosphere_model">
+      <cfname>air_pressure_at_top_of_atmosphere_model</cfname>
       <type units="Pa">real</type>
     </standard_name>
-    <standard_name name="air_pressure_at_sea_level" cfname="air_pressure_at_mean_sea_level">
+    <standard_name name="air_pressure_at_sea_level">
+      <cfname>air_pressure_at_mean_sea_level</cfname>
       <type units="Pa">real</type>
     </standard_name>
-    <standard_name name="air_pressure_at_surface" cfname="surface_air_pressure"
+    <standard_name name="air_pressure_at_surface"
                    description="Air pressure at local surface">
+      <cfname>surface_air_pressure</cfname>
       <type units="Pa">real</type>
     </standard_name>
     <standard_name name="surface_pressure_of_dry_air">
@@ -723,8 +729,9 @@
                    description="Density of dry air">
       <type units="kg m-3">real</type>
     </standard_name>
-    <standard_name name="air_pressure" cfname="air_pressure"
+    <standard_name name="air_pressure"
                    description="Midpoint air pressure">
+      <cfname>air_pressure</cfname>
       <type units="Pa">real</type>
     </standard_name>
     <standard_name name="air_pressure_of_dry_air"
@@ -872,12 +879,14 @@
                    description="Scalar function describing the streamlines of the horizontal wind">
       <type units="m2 s-1">real</type>
     </standard_name>
-    <standard_name name="horizontal_velocity_potential_of_air" cfname="atmosphere_horizontal_velocity_potential"
+    <standard_name name="horizontal_velocity_potential_of_air"
                    description="Scalar potential of the horizontal wind">
+      <cfname>atmosphere_horizontal_velocity_potential</cfname>
       <type units="m2 s-1">real</type>
     </standard_name>
-    <standard_name name="upward_absolute_vorticity_of_air" cfname="atmosphere_upward_absolute_vorticity"
+    <standard_name name="upward_absolute_vorticity_of_air"
                    description="The upward (kth) component of the curl of the vector wind field">
+      <cfname>atmosphere_upward_absolute_vorticity</cfname>
       <type units="s-1">real</type>
     </standard_name>
     <standard_name name="horizontal_divergence_of_air"
@@ -912,8 +921,9 @@
                    description="Reference pressure in atmosphere layer normalized by surface reference pressure">
       <type units="1">real</type>
     </standard_name>
-    <standard_name name="potential_temperature_of_air" cfname="air_potential_temperature"
+    <standard_name name="potential_temperature_of_air"
                    description="air potential temperature">
+      <cfname>air_potential_temperature</cfname>
       <type units="K">real</type>
     </standard_name>
     <standard_name name="potential_temperature_of_air_on_previous_timestep"
@@ -1031,8 +1041,9 @@
     <standard_name name="number_of_tracers">
       <type units="count">integer</type>
     </standard_name>
-    <standard_name name="water_vapor_mixing_ratio_wrt_moist_air" cfname="specific_humidity"
+    <standard_name name="water_vapor_mixing_ratio_wrt_moist_air"
                    description="Ratio of the mass of water vapor to the mass of moist air">
+      <cfname>specific_humidity</cfname>
       <type units="kg kg-1">real</type>
     </standard_name>
     <standard_name name="water_vapor_mixing_ratio_wrt_moist_air_and_condensed_water"
@@ -1046,8 +1057,9 @@
     <standard_name name="mole_fraction_of_water_vapor">
       <type units="mol mol-1">real</type>
     </standard_name>
-    <standard_name name="water_vapor_mixing_ratio_wrt_dry_air" cfname="humidity_mixing_ratio"
+    <standard_name name="water_vapor_mixing_ratio_wrt_dry_air"
                    description="Ratio of the mass of water vapor to the mass of dry air">
+      <cfname>humidity_mixing_ratio</cfname>
       <type units="kg kg-1">real</type>
     </standard_name>
     <standard_name name="water_vapor_mixing_ratio_wrt_dry_air_at_top_interfaces"
@@ -2998,7 +3010,8 @@
       <standard_name name="vertical_layer_dimension_minus_one">
          <type units="count">integer</type>
       </standard_name>
-      <standard_name name="sigma_pressure_hybrid_vertical_coordinate" cfname="atmosphere_hybrid_sigma_pressure_coordinate">
+      <standard_name name="sigma_pressure_hybrid_vertical_coordinate">
+         <cfname>atmosphere_hybrid_sigma_pressure_coordinate</cfname>
          <type units="1">real</type>
       </standard_name>
       <standard_name name="lower_bound_for_depth_of_sea_temperature_for_nsstm"
@@ -3106,7 +3119,8 @@
       <standard_name name="air_temperature_two_timesteps_back">
          <type units="K">real</type>
       </standard_name>
-      <standard_name name="atmosphere_boundary_layer_thickness" cfname="atmosphere_boundary_layer_thickness">
+      <standard_name name="atmosphere_boundary_layer_thickness">
+         <cfname>atmosphere_boundary_layer_thickness</cfname>
          <type units="m">real</type>
       </standard_name>
       <standard_name name="atmosphere_heat_diffusivity_from_shoc"
@@ -3539,7 +3553,8 @@
       <standard_name name="sea_ice_thickness">
          <type units="m">real</type>
       </standard_name>
-      <standard_name name="area_type" cfname="area_type">
+      <standard_name name="area_type">
+         <cfname>area_type</cfname>
          <type units="1">real</type>
       </standard_name>
       <standard_name name="reference_sea_surface_temperature">
